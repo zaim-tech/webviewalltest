@@ -1,0 +1,2 @@
+flet-webview-all
+flet>=0.85.2

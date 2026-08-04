@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+src/main.py
+src/flet_webview_all_example.egg-info/PKG-INFO
+src/flet_webview_all_example.egg-info/SOURCES.txt
+src/flet_webview_all_example.egg-info/dependency_links.txt
+src/flet_webview_all_example.egg-info/requires.txt
+src/flet_webview_all_example.egg-info/top_level.txt
