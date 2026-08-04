@@ -8,7 +8,7 @@ authors = [
     { name = "Flet developer", email = "you@example.com" }
 ]
 dependencies = [
-    "flet-webview-all @https://github.com/zaim-tech/flet-webview-all",
+    "flet-webview-all @ git+https://github.com/zaim-tech/flet-webview-all",
     "flet>=0.86.5",
 ]
 
