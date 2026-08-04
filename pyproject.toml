@@ -37,8 +37,3 @@ copyright = "Copyright (C) 2026 by MyCompany"
 [tool.flet.app]
 path = "src"
 
-[tool.flet.dev_packages]
-flet-webview-all = "../.." # relative path
-
-[tool.uv.sources]
-flet-webview-all = { path = "../..", editable = true }
