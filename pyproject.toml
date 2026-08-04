@@ -8,15 +8,15 @@ authors = [
     { name = "Flet developer", email = "you@example.com" }
 ]
 dependencies = [
-    "flet-webview-all",
-    "flet>=0.85.2",
+    "flet-webview-all @https://github.com/zaim-tech/flet-webview-all",
+    "flet>=0.86.5",
 ]
 
 [dependency-groups]
 dev = [
-    "flet-cli>=0.85.2",
-    "flet-desktop>=0.85.2",
-    "flet-web>=0.85.2",
+    "flet-cli>=0.86.5",
+    "flet-desktop>=0.86.5",
+    "flet-web>=0.86.5",
 ]
 
 [tool.flet]
