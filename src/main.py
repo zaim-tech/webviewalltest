@@ -9,7 +9,12 @@ def main(page: ft.Page):
         html="""
         <!doctype html>
         <html>
-          <body><h1>Hello from Flet</h1></body>
+          <body>
+          <h1>Hello from Flet</h1>
+          <p>hello from flet webview all</p>
+          <h2>hello</h2>
+          <button>click me</button>
+          </body>
         </html>
         """,
         expand=True,
