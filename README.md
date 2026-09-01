@@ -1,130 +1,79 @@
-# FletWebviewAll Example App
+# flet-webview-all — Test Builds
 
-A comprehensive example demonstrating the FletWebviewAll control features.
+Sample application used to test [`flet-webview-all`](https://github.com/zaim-tech/flet-webview-all),
+a unified webview control for the [Flet](https://flet.dev) framework, across
+every platform it supports.
 
-## Features Demonstrated
+- **Control repository:** [github.com/zaim-tech/flet-webview-all](https://github.com/zaim-tech/flet-webview-all)
+- **Documentation:** [zaim-tech.github.io/flet-webview-all](https://zaim-tech.github.io/flet-webview-all)
 
-- Loading websites from URLs
-- Displaying HTML content directly
-- URL input and loading
-- JavaScript enable/disable
-- Zoom control enable/disable
-- Navigation control enable/disable
-- Quick-load buttons for popular websites
+## Downloads
 
-## Running the Example
+The builds below were produced by a single CI run
+([Actions run 33524756815](https://github.com/zaim-tech/webviewalltest/actions/runs/33524756815))
+across all supported targets: desktop, mobile, and web.
 
-### Development Mode
+| Platform | Artifact |
+| --- | --- |
+| Windows | [Download](https://github.com/zaim-tech/webviewalltest/actions/runs/33524756815/artifacts/9807441770) |
+| Linux | [Download](https://github.com/zaim-tech/webviewalltest/actions/runs/33524756815/artifacts/9807385294) |
+| macOS | [Download](https://github.com/zaim-tech/webviewalltest/actions/runs/33524756815/artifacts/9807426966) |
+| Android (APK) | [Download](https://github.com/zaim-tech/webviewalltest/actions/runs/33524756815/artifacts/9807570743) |
+| Web | [Download](https://github.com/zaim-tech/webviewalltest/actions/runs/33524756815/artifacts/9807392395) |
+| iOS (IPA) | [Download](https://github.com/zaim-tech/webviewalltest/actions/runs/33524756815/artifacts/9807489993) |
+| iOS Simulator | [Download](https://github.com/zaim-tech/webviewalltest/actions/runs/33524756815/artifacts/9807499550) |
 
+> [!NOTE]
+> GitHub Actions artifacts require you to be **signed in to GitHub** to
+> download, and they expire after the repository's configured retention
+> period (90 days by default). If a link 404s, check whether the run has
+> aged out and trigger a fresh build from the
+> [Actions tab](https://github.com/zaim-tech/webviewalltest/actions).
+
+## What this tests
+
+Each artifact is the same Flet application built for its target platform,
+exercising the full surface of the `flet-webview-all` control:
+
+- Loading a remote URL and inline HTML
+- JavaScript execution and the JavaScript-channel bridge
+- Navigation policy (`allow_navigation`) and browser-style back/forward
+- Zoom, custom user agent, and background color
+- Scrolling and scroll-position events
+- Console message capture and platform-native debugging (see
+  [Debugging & DevTools](https://zaim-tech.github.io/flet-webview-all/guides/debugging/))
+- Camera/microphone permission requests (see
+  [Permissions](https://zaim-tech.github.io/flet-webview-all/guides/permissions/))
+
+## Installing a build
+
+**Windows / Linux / macOS** — unzip the artifact and run the bundled
+executable. macOS builds are unsigned; you may need to right-click → Open
+the first time, or clear the quarantine flag:
 ```bash
-# Using uv
-uv run flet run
-
-# Using pip
-pip install -r requirements.txt
-flet run
+xattr -cr /path/to/App.app
 ```
 
-### Building for Distribution
+**Android** — unzip to get the `.apk`, then install it on a device or
+emulator with `adb install app.apk` (enable "Install unknown apps" for
+your file manager or ADB source first).
 
-Build for your target platform:
-
+**iOS** — the `.ipa` requires a provisioning profile matching your device
+to install outside the App Store (e.g. via Xcode or a tool like
+AltStore/Sideloadly). The **iOS Simulator** build can be dragged directly
+onto a running simulator, or installed with:
 ```bash
-# macOS
-flet build macos -v
-
-# Windows
-flet build windows -v
-
-# Android
-flet build apk -v
-
-# iOS
-flet build ipa -v
-
-# Web
-flet build web -v
+xcrun simctl install booted /path/to/App.app
 ```
 
-## Quick-Load Examples
-
-The app includes quick-load buttons for:
-- **Google** - Search engine
-- **GitHub** - Code repository
-- **Flutter** - Flutter documentation
-- **HTML Example** - Custom HTML content
-
-## Features
-
-### URL Input
-Enter any URL and press Enter or click the check icon to load it.
-
-### Settings Panel
-Control various webview settings:
-- **Allow Navigation**: Toggle link navigation on/off
-- **Zoom Enabled**: Toggle zoom controls
-- **JavaScript Enabled**: Toggle JavaScript execution
-
-### Responsive Layout
-- Top control panel with settings
-- Full-screen webview below
-- Accessible on all platforms
-
-## Customization
-
-Edit `src/main.py` to:
-- Add more quick-load URLs
-- Customize the HTML example
-- Change colors and styling
-- Add additional controls
-
-## Requirements
-
-- Python 3.10+
-- Flet >= 0.85.2
-- flet-webview-all extension
-
-## Platform Notes
-
-### Android & iOS
-- First build takes longer due to compilation
-- Subsequent changes don't require full rebuild
-- Test on physical device for best results
-
-### macOS & Windows
-- WebView2 runtime required on Windows
-- Debugging features available via DevTools
-
-### Web
-- Some URLs may fail due to CORS policies
-- Custom User-Agent may not be fully supported
-
-## Troubleshooting
-
-### App won't build
-1. Clear cache: `flet clean`
-2. Delete build folder: `rm -rf build`
-3. Try again: `flet build macos -v`
-
-### Webview blank
-- Check URL format (should include http:// or https://)
-- Verify network connectivity
-- Enable debugging for console output
-
-### JavaScript not working
-- Check `javascript_enabled` is True
-- Verify JavaScript code syntax
-- Check browser console for errors
-
-## Support
-
-For issues:
-1. Check [FletWebviewAll documentation](../docs/)
-2. Review [main README](../README.md)
-3. File an issue on the project repository
-
-To run the app whenin using `pip`:
-
+**Web** — unzip and serve the folder with any static file server, e.g.:
+```bash
+python -m http.server --directory build/web 8000
 ```
-flet run [app_directory]
-```
+
+## Reporting issues
+
+Found a platform-specific bug in one of these builds? Please file it
+against the control itself, with the platform and artifact link included:
+
+[github.com/zaim-tech/flet-webview-all/issues](https://github.com/zaim-tech/flet-webview-all/issues)
